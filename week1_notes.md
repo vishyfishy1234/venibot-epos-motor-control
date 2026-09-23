@@ -32,3 +32,20 @@ Laptop -> USB -> EPOS2 24/2 (#390438) -> Maxon adapter (#327086) -> motor (#3378
 
 ## Week 1 deliverable
 Be able to explain how the Mac-written Python program will communicate with the EPOS2 through Maxon's EPOS Command Library, while the Linux laptop is used for actual USB/hardware testing.
+
+## Linux EPOS2 Hardware Test — September 23, 2026
+
+- Confirmed 64-bit Maxon EPOS Command Library loads successfully.
+- Resolved `libftd2xx.so` dependency using the existing EPOS SDK library directory.
+- Confirmed Python can access `VCS_OpenDevice` and `VCS_CloseDevice`.
+- Linux detected the physical EPOS2 over USB:
+  - USB ID: 0403:a8b0
+  - Device: maxon motor EPOS2
+- `motor_test.py` successfully connected to the physical EPOS2.
+- Read-only status test succeeded:
+  - enabled: False
+  - fault: False
+  - position: 0
+  - velocity: 0
+- No motor movement commands have been sent yet.
+- Have not downloaded EPOS Studio 2 yet.
