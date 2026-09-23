@@ -1,0 +1,2 @@
+# No third-party packages are needed.
+# Python's built-in ctypes module is used for the EPOS Command Library.
