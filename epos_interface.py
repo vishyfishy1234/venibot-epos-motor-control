@@ -2,7 +2,7 @@ import ctypes
 import os
 import platform
 
-from config import DEVICE_NAME, PROTOCOL_STACK, INTERFACE, PORT, NODE_ID
+from config import DEVICE_NAME, INTERFACE, NODE_ID, PORT, PROTOCOL_STACK
 
 
 def find_library():
