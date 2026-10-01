@@ -56,7 +56,7 @@ class Epos:
         self.lib.VCS_GetEnableState.argtypes = [
             ctypes.c_void_p,
             ctypes.c_ushort,
-            ctypes.POINTER(ctypes.c_bool),
+            ctypes.POINTER(ctypes.c_int),
             ctypes.POINTER(ctypes.c_uint),
         ]
         self.lib.VCS_GetEnableState.restype = ctypes.c_int
@@ -64,7 +64,7 @@ class Epos:
         self.lib.VCS_GetFaultState.argtypes = [
             ctypes.c_void_p,
             ctypes.c_ushort,
-            ctypes.POINTER(ctypes.c_bool),
+            ctypes.POINTER(ctypes.c_int),
             ctypes.POINTER(ctypes.c_uint),
         ]
         self.lib.VCS_GetFaultState.restype = ctypes.c_int
@@ -127,10 +127,8 @@ class Epos:
     def status(self):
         err = self._err()
 
-        enabled = ctypes.c_bool()
-        fault = ctypes.c_bool()
-
-        # EPOS position and velocity values are signed 32-bit values.
+        enabled = ctypes.c_int()
+        fault = ctypes.c_int()
         position = ctypes.c_int32()
         velocity = ctypes.c_int32()
 
@@ -155,8 +153,8 @@ class Epos:
             raise RuntimeError(f"GetVelocityIs failed: 0x{err.value:08X}")
 
         return {
-            "enabled": enabled.value,
-            "fault": fault.value,
+            "enabled": bool(enabled.value),
+            "fault": bool(fault.value),
             "position": position.value,
             "velocity": velocity.value,
         }
