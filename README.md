@@ -47,12 +47,11 @@ Mock mode does not connect to or move a motor. It lets you develop the program s
 
 ## Linux lab setup
 
-Copy the folder to the Linux laptop. After Maxon's Linux EPOS Command Library is installed, set its path, for example:
+Install Maxon's EPOS library once with [epos-sdk-bootstrap](https://github.com/lkaising/epos-sdk-bootstrap). Then, in each new terminal:
 
-`export EPOS_LIB=/path/to/libEposCmd.so`
-
-Then run:
-
-`python3 motor_test.py`
+```bash
+source ~/workspace/upstream/epos-sdk/setup.bash
+python3 motor_test.py
+```
 
 Confirm the Node ID in EPOS Studio before using the real hardware.
