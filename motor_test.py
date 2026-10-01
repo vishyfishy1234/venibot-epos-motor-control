@@ -34,7 +34,7 @@ def run(epos, mock=False):
                 break
             else:
                 print("Unknown command.")
-        except Exception as exc:
+        except RuntimeError as exc:
             print(f"ERROR: {exc}")
 
 
