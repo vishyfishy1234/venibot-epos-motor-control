@@ -12,10 +12,11 @@ Python tools for testing and controlling Maxon EPOS2 motor controllers for the V
 ## Project Structure
 
 - `motor_test.py` — main motor test program
+- `encoder_monitor.py` — live encoder position monitor
 - `epos_interface.py` — EPOS2 communication interface
 - `mock_epos.py` — mock interface for development without hardware
 - `config.py` — EPOS configuration
-- `week1_notes.md` — Week 1 research and notes
+- `documentation.md` — Week 1 and Week 2 research and notes
 
 ## Development
 
@@ -26,16 +27,6 @@ The project uses Maxon's EPOS Command Library through Python `ctypes`.
 ## Safety
 
 Motor parameters should be configured and verified in EPOS Studio before running motion commands.
-
-<<<<<<< HEAD
-# VeniBot EPOS2 Motor Control — Weeks 1 & 2
-
-Develop the Python software on a Mac, then transfer it to the Linux lab laptop for real EPOS2 hardware testing.
-
-Hardware from the lab photos:
-- Maxon EPOS2 24/2 — #390438
-- Maxon adapter — #327086
-- Maxon motor — #337880
 
 Important: do not guess motor/encoder parameters. Verify the exact configuration in EPOS Studio on the lab machine before commanding motion.
 
@@ -65,7 +56,3 @@ Then run:
 `python3 motor_test.py`
 
 Confirm the Node ID in EPOS Studio before using the real hardware.
-=======
-# venibot-epos-motor-control
-Python Motor Control for Venibot EPOS2
->>>>>>> 09d7661ec1a917e0c745b922936ae480f0ff41bd
